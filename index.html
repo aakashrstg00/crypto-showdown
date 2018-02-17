@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CryptoShowdown App</title>
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <style>
+        *{
+            color: #333;
+        }
+        body{
+            background-color: #eaeaea;
+        }
+        .flex-child{
+            display: flex;
+            justify-content: space-between;
+        }
+        @media screen and (max-width:480px){
+            .flex-child{
+                display: block;
+            }
+            .sm-margin{
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar-fixed">
+        <nav class="blue lighten-2">
+            <div class="nav-wrapper container">
+                <a class="brand-logo left">Crypto-Showdown</a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="mailto:1998aakashrastogi@gmail.com" target="_blank">Contact Developer</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+                    
+    <div class="container">
+        <div id="collection-div" style="margin-top:20px;">
+            <img class="responsive-img pulse">            
+            <ul class="collapsible popout" data-collapsible="accordion"></ul>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
