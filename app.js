@@ -1,14 +1,14 @@
 var promptStorage;
 if('serviceWorker' in navigator){
-    navigator.serviceWorker
-        .register('./service-worker.js')
-        .then(res=>console.log('Service Worker Registered!'))
-        .catch(err=>console.error(err));
+    // navigator.serviceWorker
+    //     .register('./service-worker.js')
+    //     .then(res=>console.log('Service Worker Registered!'))
+    //     .catch(err=>console.error(err));
     
-    window.addEventListener('beforeinstallprompt',e=>{
-        promptStorage = e;        
-        console.log('Before Install Prompt!',promptStorage);
-    });
+    // window.addEventListener('beforeinstallprompt',e=>{
+    //     promptStorage = e;        
+    //     console.log('Before Install Prompt!',promptStorage);
+    // });
 
     // setTimeout(function(){
     //     promptStorage.prompt();
@@ -32,20 +32,38 @@ window.addEventListener('load',()=>{
                 <div class="collapsible-header flex-child">
                     <span> 
                         #${element.rank} (${element.symbol})
-                        <h5>${element.name}</h5>
+                        <h6><strong>${element.name}</strong></h6>
+                        <span class="new blue badge" data-badge-caption=" ">$ ${element.market_cap_usd}</span>
                     </span>
                     <div class="valign-wrapper">
-                        <span class="${color} lighten-4 chip">&#8377;&nbsp;${element.price_inr}</span>
+                        <span class="${color} lighten-4 chip">$&nbsp;${element.price_usd}</span>
                     </div>
                 </div>
 
                 <div class="collapsible-body ${color} lighten-5 flex-child valign-wrapper">
                     <div class="sm-margin">
-                        <i class="fa ${updown}" style="color:${color}"></i>
-                        &nbsp;${element.percent_change_24h}%
+                        <div>
+                            24h: <br> 
+                            <span>
+                                <i class="fa ${updown}" style="color:${color}"></i>
+                                &nbsp;${element.percent_change_24h}%
+                            </span>
+                        </div>
+                        <br>
+                        <div>
+                            7d: <br> 
+                            <span>
+                                <i class="fa ${updown}" style="color:${color}"></i>
+                                &nbsp;${element.percent_change_7d}%
+                            </span>
+                        </div>
+                    </div>
+                    <div>
+                        Market Cap<br>
+                        <span class="new blue badge" data-badge-caption=" ">&#8377 ${element.market_cap_inr}</span>
                     </div>
                     <div class="${color} lighten-4 chip sm-margin">
-                        $ ${element.price_usd}
+                        &#8377 ${element.price_inr}
                     </div>
                 </div>
             </li>

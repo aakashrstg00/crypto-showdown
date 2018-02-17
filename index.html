@@ -21,15 +21,17 @@
             display: flex;
             justify-content: space-between;
         }
+        .container-custom{
+            margin: 0 auto;
+            padding: 0 10%;
+        }
         @media screen and (max-width:480px){
-            .flex-child{
-                display: block;
-            }
             .sm-margin{
                 margin: 10px 0;
             }
-            .container{
-                width:100%!important;
+            .container-custom{
+                margin: 0 auto;
+                padding: 0;
             }
         }
     </style>
@@ -37,7 +39,7 @@
 <body>
     <div class="navbar-fixed">
         <nav class="blue lighten-2">
-            <div class="nav-wrapper container">
+            <div class="nav-wrapper container-custom">
                 <a class="brand-logo left">Crypto-Showdown</a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <li>
@@ -51,12 +53,14 @@
         </nav>
     </div>
                     
-    <div class="container">
+    <div class="container-custom">
         <div id="collection-div" style="margin-top:20px;">  
             <ul class="collapsible popout" data-collapsible="accordion"></ul>
         </div>
         <footer class="row">
-            <a href="mailto:1998aakashrastogi@gmail.com">Contact Developer : Aakash Rastogi</a>
+            <div class="center-align">
+                <a href="mailto:1998aakashrastogi@gmail.com">Contact Developer : Aakash Rastogi</a>                
+            </div>
         </footer>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
