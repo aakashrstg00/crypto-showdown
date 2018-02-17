@@ -26,7 +26,9 @@ window.addEventListener('load',()=>{
         console.log(data);
         data.forEach(element => {
             var updown = (element.percent_change_24h.charAt(0) === '-')?'fa-caret-down':'fa-caret-up';
+            var updown7d = (element.percent_change_7d.charAt(0) === '-')?'fa-caret-down':'fa-caret-up';
             var color = (element.percent_change_24h.charAt(0) === '-')?'red':'green';
+            var color7d = (element.percent_change_7d.charAt(0) === '-')?'red':'green';
             var collection_item_li = `
             <li class="active">
                 <div class="collapsible-header flex-child">
@@ -40,7 +42,7 @@ window.addEventListener('load',()=>{
                     </div>
                 </div>
 
-                <div class="collapsible-body ${color} lighten-5 flex-child valign-wrapper">
+                <div class="collapsible-body ${color7d} lighten-5 flex-child valign-wrapper">
                     <div class="sm-margin">
                         <div>
                             24h: <br> 
@@ -53,7 +55,7 @@ window.addEventListener('load',()=>{
                         <div>
                             7d: <br> 
                             <span>
-                                <i class="fa ${updown}" style="color:${color}"></i>
+                                <i class="fa ${updown7d}" style="color:${color7d}"></i>
                                 &nbsp;${element.percent_change_7d}%
                             </span>
                         </div>
