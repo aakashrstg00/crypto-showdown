@@ -1,4 +1,4 @@
-var CACHE_STATIC_NAME = 'static-cache'
+var CACHE_STATIC_NAME = 'static-cache-1'
 var STATIC_FILES_ARRAY = [
     '/index.html',
     '/',
@@ -14,6 +14,17 @@ var STATIC_FILES_ARRAY = [
 ];
 self.addEventListener('install', event => {
     console.log('[sw] installing sw.', event);
+    event.waitUntil(
+        caches.keys()
+        .then((keyList) => {
+            return Promise.all(keyList.map((key) => {
+                if (key !== CACHE_STATIC_NAME) {
+                    console.log('{sw} removing old cache! ' + key);
+                    return caches.delete(key);
+                }
+            }));
+        })
+    );
     event.waitUntil(caches.open(CACHE_STATIC_NAME)
         .then((cache) => {
             console.log('[sw] precaching app shell.');

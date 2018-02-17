@@ -1,4 +1,4 @@
-var propmtStorage;
+var promptStorage;
 if('serviceWorker' in navigator){
     navigator.serviceWorker
         .register('./service-worker.js')
@@ -6,9 +6,18 @@ if('serviceWorker' in navigator){
         .catch(err=>console.error(err));
     
     window.addEventListener('beforeinstallprompt',e=>{
-        console.log('Before Install Prompt!');
-        propmtStorage = e;
+        promptStorage = e;        
+        console.log('Before Install Prompt!',promptStorage);
     });
+
+    // setTimeout(function(){
+    //     promptStorage.prompt();
+    //     promptStorage.userChoice.then(function (choiceResult) {
+    //     console.log(choiceResult.outcome);
+    //     if (choiceResult.outcome === 'dismissed') console.log('User cancelled installation');
+    //     else console.log('User added to home screen');
+    //     });
+    // },10000);
 }
 window.addEventListener('load',()=>{
     fetch('https://api.coinmarketcap.com/v1/ticker/?convert=INR')
@@ -54,33 +63,14 @@ window.addEventListener('load',()=>{
     // var myImage = document.querySelector('img');
     // fetch('https://cdn2.iconfinder.com/data/icons/bitcoin-and-mining/44/trade-512.png')
     // .then(function(response) {
-    //     if(response.ok) {
-    //       return response.blob();
-    //     }
+    //     if(response.ok) return response.blob();
     //     throw new Error('Network response was not ok.');
     // })
     // .then(function(myBlob) { 
     //     var objectURL = URL.createObjectURL(myBlob); 
     //     myImage.src = objectURL;
-    //     myImage.width = '50';
-    //     myImage.style.display = 'block';
-    //     myImage.style.margin = 'auto';
-    //     myImage.style.marginTop = '10px';
-    // })
-    // .catch(function(error) {
-    //     console.log('There has been a problem with your fetch operation: ', error.message);
     // });
 });
 $(document).ready(function(){
     $('.collapsible').collapsible();
-    setTimeout(function(){
-        promptStorage.prompt();
-
-        promptStorage.userChoice.then(function (choiceResult) {
-        console.log(choiceResult.outcome);
-
-        if (choiceResult.outcome === 'dismissed') console.log('User cancelled installation');
-        else console.log('User added to home screen');
-        });
-    },10000);
 });
