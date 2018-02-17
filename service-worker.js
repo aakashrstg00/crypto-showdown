@@ -24,22 +24,16 @@ self.addEventListener('install', event => {
 });
 
 self.addEventListener('fetch', event => {
-    event.respondWith(caches.match(event.request)
-        .then(response => {
-            if(response){
-                console.log('{SW} cache response');
-                return response;
-            }
-            else{
-                console.log('{SW} making network request');
-                return fetch(event.request)
-                    .then(res => {
-                        return caches.open('dynamic-cache')
-                            .then(cache => {
-                                cache.put(event.request.url, res.clone());
-                                return res;
-                            });
-                    });
-            }
-        }));
+    event.respondWith(
+        caches.open(CACHE_STATIC_NAME)
+            .then(cache => {
+                return caches.match(event.request)
+                    .then(response => {
+                        return response || fetch(event.request).then(res => {
+                            cache.put(event.request.url, res.clone());
+                            return res;
+                        });
+                    })
+            })
+    );
 });

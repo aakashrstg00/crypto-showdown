@@ -51,25 +51,25 @@ window.addEventListener('load',()=>{
         },0);
     })
     .catch(err=>console.log(err));
-
-    var myImage = document.querySelector('img');
-    fetch('https://cdn2.iconfinder.com/data/icons/bitcoin-and-mining/44/trade-512.png')
-    .then(function(response) {
-        if(response.ok) {
-          return response.blob();
-        }
-        throw new Error('Network response was not ok.');
-    })
-    .then(function(myBlob) { 
-        var objectURL = URL.createObjectURL(myBlob); 
-        myImage.src = objectURL;
-        myImage.width = '100';
-        myImage.style.display = 'block';
-        myImage.style.margin = 'auto';
-    })
-    .catch(function(error) {
-        console.log('There has been a problem with your fetch operation: ', error.message);
-    });
+    // var myImage = document.querySelector('img');
+    // fetch('https://cdn2.iconfinder.com/data/icons/bitcoin-and-mining/44/trade-512.png')
+    // .then(function(response) {
+    //     if(response.ok) {
+    //       return response.blob();
+    //     }
+    //     throw new Error('Network response was not ok.');
+    // })
+    // .then(function(myBlob) { 
+    //     var objectURL = URL.createObjectURL(myBlob); 
+    //     myImage.src = objectURL;
+    //     myImage.width = '50';
+    //     myImage.style.display = 'block';
+    //     myImage.style.margin = 'auto';
+    //     myImage.style.marginTop = '10px';
+    // })
+    // .catch(function(error) {
+    //     console.log('There has been a problem with your fetch operation: ', error.message);
+    // });
 });
 $(document).ready(function(){
     $('.collapsible').collapsible();
