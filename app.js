@@ -1,3 +1,15 @@
+var propmtStorage;
+if('serviceWorker' in navigator){
+    navigator.serviceWorker
+        .register('./service-worker.js')
+        .then(res=>console.log('Service Worker Registered!'))
+        .catch(err=>console.error(err));
+    
+    window.addEventListener('beforeinstallprompt',e=>{
+        console.log('Before Install Prompt!');
+        propmtStorage = e;
+    });
+}
 window.addEventListener('load',()=>{
     fetch('https://api.coinmarketcap.com/v1/ticker/?convert=INR')
     .then(res=>res.ok && res.json())
@@ -15,7 +27,7 @@ window.addEventListener('load',()=>{
                     </span>
                     <div class="valign-wrapper">
                         <span class="${color} lighten-4 chip">&#8377;&nbsp;${element.price_inr}</span>
-                    </div   >
+                    </div>
                 </div>
 
                 <div class="collapsible-body ${color} lighten-5 flex-child valign-wrapper">

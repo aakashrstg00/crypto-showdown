@@ -1,0 +1,20 @@
+{
+    "name": "Crypto-Showdown",
+    "short_name": "Crypto",
+    "start_url": "/index.html",
+    "description": "Cryptocurrency stats PWA",
+    "scope": ".",
+    "display": "fullscreen",
+    "background_color": "#888",
+    "theme_color": "#3f51b5",
+    "dir": "ltr",
+    "lang": "en-US",
+    "orientation": "portrait-primary",
+    "icons": [
+        {
+            "src": "favicon.ico",
+            "type": "image/png",
+            "sizes": "48X48"
+        }
+    ]
+}
