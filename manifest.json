@@ -15,6 +15,16 @@
             "src": "favicon.ico",
             "type": "image/png",
             "sizes": "48X48"
+        },
+        {
+            "src": "favicon.ico",
+            "type": "image/png",
+            "sizes": "96X96"
+        },
+        {
+            "src": "favicon.ico",
+            "type": "image/png",
+            "sizes": "192X192"
         }
     ]
 }
