@@ -73,4 +73,14 @@ window.addEventListener('load',()=>{
 });
 $(document).ready(function(){
     $('.collapsible').collapsible();
+    setTimeout(function(){
+        promptStorage.prompt();
+
+        promptStorage.userChoice.then(function (choiceResult) {
+        console.log(choiceResult.outcome);
+
+        if (choiceResult.outcome === 'dismissed') console.log('User cancelled installation');
+        else console.log('User added to home screen');
+        });
+    },10000);
 });
