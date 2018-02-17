@@ -1,14 +1,14 @@
 var promptStorage;
 if('serviceWorker' in navigator){
-    // navigator.serviceWorker
-    //     .register('./service-worker.js')
-    //     .then(res=>console.log('Service Worker Registered!'))
-    //     .catch(err=>console.error(err));
+    navigator.serviceWorker
+        .register('./service-worker.js')
+        .then(res=>console.log('Service Worker Registered!'))
+        .catch(err=>console.error(err));
     
-    // window.addEventListener('beforeinstallprompt',e=>{
-    //     promptStorage = e;        
-    //     console.log('Before Install Prompt!',promptStorage);
-    // });
+    window.addEventListener('beforeinstallprompt',e=>{
+        promptStorage = e;        
+        console.log('Before Install Prompt!',promptStorage);
+    });
 
     // setTimeout(function(){
     //     promptStorage.prompt();
